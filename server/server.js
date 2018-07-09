@@ -3,6 +3,7 @@ require('./config/config');
 const _ = require('lodash');
 const express = require('express');
 const bodyParser = require('body-parser');
+const path = require('path');
 const {ObjectID} = require('mongodb');
 
 var {mongoose} = require('./db/mongoose.js')
@@ -15,7 +16,7 @@ const port = process.env.PORT || 3000;
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
-    res.sendFile('./../Front-End/index.html');
+    res.sendFile(path.join(__dirname + './../Front-End/index.html'));
 })
 
 app.get('/todos', (req, res) => {
