@@ -89,7 +89,7 @@
   <body>
       <h1 class="list">My Todo List</h1>
       <input type="text" id="todoInput">
-      <button id="addTodoButton">Add Todo</button>
+      <button id="addTodoButton" onclick="addTodo()">Add Todo</button>
       <ul id="todoList">
         
 
@@ -111,7 +111,6 @@
             if (xhr.readyState === xhr.DONE) {
                 if (xhr.status === 200) {
                     todoData = JSON.parse(xhr.responseText); 
-                    console.log(todoData);
                     for(var i = 0; i < todoData.todos.length; i++){
                         let ul = document.getElementsByTagName('ul')[0];
                         let li = document.createElement('li');
@@ -121,6 +120,17 @@
                 }
             }
         };
+        
+        function addTodo() {
+          var text = document.getElementById('todoInput').value;
+          console.log(text);
+          xhr = new XMLHttpRequest();
+          xhr.open("POST", url, true);
+          var request = JSON.stringify({text});
+          console.log(request);
+          xhr.setRequestHeader('Content-Type', 'application/json');
+          xhr.send(request);
+        }
         // console.log(weatherData); why doesnt it work here
       </script>
       
