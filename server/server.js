@@ -14,6 +14,10 @@ const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 
+app.get('/', (req, res) => {
+    res.sendFile('./../Front-End/index.html');
+})
+
 app.get('/todos', (req, res) => {
     Todo.find().then((todos) => {
         res.send({todos});
