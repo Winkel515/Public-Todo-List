@@ -112,11 +112,10 @@
                 if (xhr.status === 200) {
                     todoData = JSON.parse(xhr.responseText); 
                     console.log(todoData);
-                    
                     for(var i = 0; i < todoData.todos.length; i++){
                         let ul = document.getElementsByTagName('ul')[0];
                         let li = document.createElement('li');
-                        li.textContent = todoData.todos[i].value;
+                        li.textContent = todoData.todos[i].text;
                         ul.appendChild(li);
                     }            
                 }
