@@ -111,7 +111,7 @@
             if (xhr.readyState === xhr.DONE) {
                 if (xhr.status === 200) {
                     todoData = JSON.parse(xhr.responseText); 
-                    for(var i = 0; i < todoData.todos.length; i++){
+                    for(var i = todoData.todos.length-1; i >= 0; i--){
                         let ul = document.getElementsByTagName('ul')[0];
                         let li = document.createElement('li');
                         li.textContent = todoData.todos[i].text;

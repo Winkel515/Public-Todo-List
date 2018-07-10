@@ -55,7 +55,7 @@ app.delete('/todos/:id', (req, res) => {
             }
         })
     } else{
-        res.status(400).send('ID is invalid');
+        res.status(400).send();
     }
 });
 
